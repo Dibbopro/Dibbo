@@ -1,3 +1,4 @@
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ a {
   margin: auto;
 }
 
+/* Header */
 header {
   background: #1a1d23;
   color: #fff;
@@ -37,6 +39,7 @@ header {
   margin-bottom: 1rem;
 }
 
+/* Navigation */
 nav {
   background: #181b20;
 }
@@ -63,6 +66,7 @@ nav {
   color: #000;
 }
 
+/* Main Content */
 main {
   padding: 2rem 0;
 }
@@ -77,6 +81,7 @@ section {
   border-radius: 10px;
 }
 
+/* Project Cards */
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -102,6 +107,7 @@ section {
   margin-bottom: 0.5rem;
 }
 
+/* Footer */
 footer {
   background: #111;
   color: #aaa;
