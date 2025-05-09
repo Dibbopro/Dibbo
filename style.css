@@ -6,13 +6,13 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #1e1e1e;
+  background-color: #0e1013;
   color: #e0e0e0;
 }
 
 a {
   color: #4fc3f7;
+  text-decoration: none;
 }
 
 .container {
@@ -22,15 +22,23 @@ a {
 }
 
 header {
-  background: #111;
+  background: #1a1d23;
   color: #fff;
   padding: 2rem 0;
   text-align: center;
-  border-bottom: 2px solid #4fc3f7;
+  border-bottom: 3px solid #00ff97;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00ff97;
+  margin-bottom: 1rem;
 }
 
 nav {
-  background: #222;
+  background: #181b20;
 }
 
 .nav-links {
@@ -44,15 +52,15 @@ nav {
 }
 
 .nav-links a {
-  color: #fff;
-  text-decoration: none;
+  color: #ccc;
   padding: 1rem;
   display: block;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .nav-links a:hover {
-  background-color: #333;
+  background-color: #00ff97;
+  color: #000;
 }
 
 main {
@@ -63,13 +71,35 @@ section {
   margin-bottom: 2rem;
 }
 
-.project-list {
-  list-style: none;
-  padding-left: 0;
+.banner-img {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 10px;
 }
 
-.project-list li {
-  margin-bottom: 1rem;
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #1f2227;
+  padding: 1rem;
+  border-radius: 10px;
+  width: calc(50% - 1rem);
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }
 
 footer {
@@ -77,6 +107,6 @@ footer {
   color: #aaa;
   text-align: center;
   padding: 1rem 0;
-  margin-top: 2rem;
   font-size: 0.9rem;
+  margin-top: 2rem;
 }
