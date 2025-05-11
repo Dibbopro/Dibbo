@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DreamVision | Projects</title>
+  <title>Projects | DreamVision</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon.png" />
 </head>
 <body>
 
   <!-- Header -->
   <header class="fade-in-up">
-    <div class="container header-container">
-      <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
-      <div>
-        <h1>Featured Projects</h1>
-        <p>Explore custom Minecraft servers, systems & showcases I've built.</p>
-      </div>
+    <div class="container header-container center-text">
+      <img src="images/profile.jpg" alt="DreamVision Logo" class="profile-img" />
+      <h1>My Projects</h1>
+      <p>Explore the Minecraft servers, systems & plugins I’ve built.</p>
     </div>
   </header>
 
@@ -30,84 +27,71 @@
     </ul>
   </nav>
 
-  <!-- Projects -->
-  <main class="container fade-in-up">
-    <section id="projects">
-      <h2 class="section-title">⚒️ Server Projects</h2>
-      <div class="projects grid">
-        <div class="project-card">
-          <img src="images/creepermc.jpg" alt="CreeperMC Server Screenshot" />
-          <div class="card-content">
-            <h3>CreeperMC</h3>
-            <p>Server-side engineering, plugin development, and full-stack system tuning.</p>
-          </div>
-        </div>
+  <!-- Main Projects Section -->
+  <main class="container">
 
-        <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork Minecraft Server" />
-          <div class="card-content">
-            <h3>VoidNetwork</h3>
-            <p>Custom plugin ecosystem and scalable back-end for immersive multiplayer experience.</p>
-          </div>
+    <section class="project-grid fade-in-up">
+
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <img src="images/creepermc.jpg" alt="CreeperMC Screenshot" class="project-img" />
+        <div class="project-info">
+          <h3>CreeperMC</h3>
+          <p>Complete system overhaul: plugin architecture, server balancing & event scripting.</p>
         </div>
       </div>
 
-      <h2 class="section-title">🎬 Trailers & Showcases</h2>
-      <div class="projects grid">
-        <div class="project-card video-card">
-          <div class="responsive-video">
-            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Worked Servers Trailer"></iframe>
-          </div>
-          <div class="card-content">
-            <h3>Worked Servers Trailer</h3>
-            <p>Highlights of systems and gameplay from my previous work.</p>
-          </div>
-        </div>
-
-        <div class="project-card video-card">
-          <div class="responsive-video">
-            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="CreeperMC Trailer"></iframe>
-          </div>
-          <div class="card-content">
-            <h3>CreeperMC Season 3</h3>
-            <p>Trailer for major feature additions, custom game modes & plugin architecture.</p>
-          </div>
+      <!-- Project Card 2 -->
+      <div class="project-card">
+        <img src="images/voidnetwork.jpg" alt="VoidNetwork Screenshot" class="project-img" />
+        <div class="project-info">
+          <h3>VoidNetwork</h3>
+          <p>Designed a scalable backend, matchmaking logic & immersive gamemodes like LifeSteal.</p>
         </div>
       </div>
+
+      <!-- Project Card 3 -->
+      <div class="project-card">
+        <iframe class="project-video" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Server Trailer"></iframe>
+        <div class="project-info">
+          <h3>Trailer / Showcase</h3>
+          <p>Highlight video of servers built, styled and launched with backend tech.</p>
+        </div>
+      </div>
+
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="fade-in">
-    <div class="container">
-      <p>&copy; 2025 DreamVision. Built by hand in Java & love 🧠💖</p>
+    <div class="container center-text">
+      <p>&copy; 2025 DreamVision. Crafted with plugins & coffee ☕</p>
     </div>
   </footer>
 
-  <!-- Animation Script -->
+  <!-- Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("theme-toggle");
       const body = document.body;
-      const savedTheme = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") body.classList.add("dark-mode");
 
-      if (savedTheme === 'dark') body.classList.add('dark-mode');
-
-      toggle?.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      toggle?.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
-      const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
+      const items = document.querySelectorAll(".fade-in, .fade-in-up, .slide-in-left, .project-card");
       function reveal() {
-        animatedItems.forEach(el => {
-          const top = el.getBoundingClientRect().top;
-          if (top < window.innerHeight - 100) {
-            el.classList.add('visible');
-            el.style.animationPlayState = 'running';
+        items.forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("visible");
+            el.style.animationPlayState = "running";
           }
         });
       }
+
       window.addEventListener("scroll", reveal);
       reveal();
     });
