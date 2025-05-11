@@ -6,14 +6,12 @@
   <title>DreamVision | Minecraft Server Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.png" />
-  <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
 
-  <!-- Apply dark mode early -->
-  <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark-mode');
-    }
-  </script>
+  <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
+  <meta property="og:title" content="DreamVision | Minecraft Server Developer">
+  <meta property="og:description" content="Custom Bedwars, LifeSteal, Practice PvP and Survival servers.">
+  <meta property="og:image" content="images/profile.jpg">
+  <meta property="og:url" content="https://your-portfolio-link.com">
 </head>
 <body>
 
@@ -34,13 +32,16 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><button id="theme-toggle">💡</button></li>
-      <li><button id="music-toggle">🎵</button></li>
+      <li>
+        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
+      </li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main class="container">
+
+    <!-- About + Skills Section -->
     <section id="about">
       <h2>About Me</h2>
       <p>
@@ -61,11 +62,12 @@
       <img src="images/minecraft-banner.jpg" alt="Minecraft banner" class="banner-img" />
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact Me</h2>
       <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
       <p>💬 Discord: <strong>itzdibbozz2</strong></p>
-      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank" rel="noopener noreferrer">github.com/DreamVisionMC</a></p>
     </section>
   </main>
 
@@ -76,51 +78,22 @@
     </div>
   </footer>
 
-  <!-- Audio Element -->
-  <audio id="bg-music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-betterdays.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Script -->
+  <!-- Theme Toggle Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const themeToggle = document.getElementById('theme-toggle');
-      const musicToggle = document.getElementById('music-toggle');
-      const audio = document.getElementById('bg-music');
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
 
-      // Dark Mode
-      themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
 
-      // Music
-      const musicState = localStorage.getItem('music');
-      if (musicState === 'on') musicToggle.textContent = '🔊';
-
-      musicToggle.addEventListener('click', () => {
-        if (audio.paused) {
-          audio.play().then(() => {
-            musicToggle.textContent = '🔊';
-            localStorage.setItem('music', 'on');
-          }).catch(() => {
-            alert("Autoplay blocked. Please click to allow music.");
-          });
-        } else {
-          audio.pause();
-          musicToggle.textContent = '🎵';
-          localStorage.setItem('music', 'off');
-        }
-      });
-
-      if (musicState === 'on') {
-        window.addEventListener('click', () => {
-          if (audio.paused) {
-            audio.play().catch(() => {});
-            musicToggle.textContent = '🔊';
-          }
-        }, { once: true });
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          body.classList.toggle('dark-mode');
+          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
       }
     });
   </script>
