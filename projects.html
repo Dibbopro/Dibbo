@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DreamVision | Projects</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark-mode');
-    }
-  </script>
 </head>
 <body>
 
@@ -30,12 +25,13 @@
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="index.html">Home</a></li>
-      <li><button id="theme-toggle">💡</button></li>
-      <li><button id="music-toggle">🎵</button></li>
+      <li>
+        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
+      </li>
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Projects Section -->
   <main class="container">
     <section id="projects">
       <h2 class="section-title">⚒️ Server Projects</h2>
@@ -85,10 +81,28 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 DreamVision. Built with Java & love 🧠💖</p>
+      <p>&copy; 2025 DreamVision. Built by hand in Java & love 🧠💖</p>
     </div>
   </footer>
 
-  <!-- Audio Element -->
-  <audio id="bg-music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-betterdays.mp3" type="audio/mpeg" />
+  <!-- Theme Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          body.classList.toggle('dark-mode');
+          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
