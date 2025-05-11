@@ -1,21 +1,25 @@
-/* ✅ Reset & Base */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
   overflow-x: hidden;
   font-family: sans-serif;
   scroll-behavior: smooth;
-  background-color: #111;
-  color: white;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* ✅ Default Light Theme (base) */
+body {
+  background-color: #f4f4f4;
+  color: #111;
   z-index: 1;
 }
 
-/* ✅ Particle Canvas */
+/* ✅ Particle canvas behind */
 #particles-js {
   position: fixed;
   top: 0;
@@ -27,63 +31,85 @@ html, body {
   pointer-events: none;
 }
 
-/* ✅ Layout */
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 2rem;
-}
-
+/* Navbar */
 nav {
-  background: #222;
+  background: #ffffff;
   padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
 .nav-links {
+  list-style: none;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  list-style: none;
 }
-
 .nav-links a {
-  color: white;
+  color: #222;
   text-decoration: none;
 }
 
+/* Header */
 .profile-img {
   width: 100px;
   border-radius: 50%;
 }
-
 .highlight {
-  color: #00ff99;
+  color: #00cc67;
 }
-
-.skills-list {
-  padding-left: 1.5rem;
-}
-
 .banner-img {
   width: 100%;
   margin-top: 1rem;
 }
-
-footer {
-  background: #151515;
-  text-align: center;
-  padding: 1rem;
+.skills-list {
+  padding-left: 1.5rem;
 }
 
-/* ✅ Dark Theme */
+/* Project Cards */
+.project-card {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  background: #ddd;
+  text-align: center;
+  padding: 1rem;
+  color: #222;
+}
+
+/* ✅ Dark Mode Overrides */
 body.dark-mode {
   background-color: #0a0a0a;
   color: #fafafa;
 }
-
 body.dark-mode nav {
-  background: #111;
+  background-color: #111;
+  color: white;
 }
+body.dark-mode .nav-links a {
+  color: white;
+}
+body.dark-mode footer {
+  background: #151515;
+  color: #eee;
+}
+body.dark-mode .project-card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ✅ Particle Style Unaffected */
 
 /* ✅ Animations */
 @keyframes fadeInUp {
@@ -98,25 +124,6 @@ body.dark-mode nav {
   from { opacity: 0; transform: translateX(-50px); }
   to { opacity: 1; transform: translateX(0); }
 }
-
-.fade-in { animation: fadeIn 1s ease forwards; }
+.fade-in { animation: fadeIn 1.2s ease forwards; }
 .fade-in-up { animation: fadeInUp 1.2s ease forwards; }
 .slide-in-left { animation: slideInLeft 1.2s ease forwards; }
-
-.project-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
-  border-radius: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
-
-.project-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.project-card:hover {
-  transform: scale(1.03);
-}
