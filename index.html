@@ -6,8 +6,14 @@
   <title>DreamVision | Minecraft Server Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.png" />
-
   <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
+
+  <!-- Apply dark mode early -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 <body>
 
@@ -35,8 +41,6 @@
 
   <!-- Main Content -->
   <main class="container">
-
-    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
       <p>
@@ -57,12 +61,11 @@
       <img src="images/minecraft-banner.jpg" alt="Minecraft banner" class="banner-img" />
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact Me</h2>
       <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
       <p>💬 Discord: <strong>itzdibbozz2</strong></p>
-      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank" rel="noopener noreferrer">github.com/DreamVisionMC</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
     </section>
   </main>
 
@@ -79,36 +82,39 @@
       const body = document.body;
       const themeToggle = document.getElementById('theme-toggle');
       const musicToggle = document.getElementById('music-toggle');
-      const savedTheme = localStorage.getItem('theme');
 
       // Dark Mode
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-      }
-
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-          body.classList.toggle('dark-mode');
-          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+          document.documentElement.classList.toggle('dark-mode');
+          localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
         });
       }
 
       // Music Toggle
-      const audio = new Audio('https://www.bensound.com/bensound-music/bensound-betterdays.mp3');
-      audio.loop = true;
-      audio.volume = 0.5;
-      let isPlaying = false;
+      const musicUrl = 'https://www.bensound.com/bensound-music/bensound-betterdays.mp3';
+      window.audioPlayer = window.audioPlayer || new Audio(musicUrl);
+      audioPlayer.loop = true;
+      audioPlayer.volume = 0.5;
+
+      let isPlaying = localStorage.getItem('music') === 'on';
+
+      if (isPlaying) {
+        audioPlayer.play().catch(() => {});
+        if (musicToggle) musicToggle.textContent = '🔊';
+      }
 
       if (musicToggle) {
         musicToggle.addEventListener('click', () => {
-          if (isPlaying) {
-            audio.pause();
-            musicToggle.textContent = '🎵';
-          } else {
-            audio.play();
+          if (audioPlayer.paused) {
+            audioPlayer.play();
             musicToggle.textContent = '🔊';
+            localStorage.setItem('music', 'on');
+          } else {
+            audioPlayer.pause();
+            musicToggle.textContent = '🎵';
+            localStorage.setItem('music', 'off');
           }
-          isPlaying = !isPlaying;
         });
       }
     });
