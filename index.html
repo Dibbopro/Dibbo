@@ -28,13 +28,16 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="projects.html">Projects</a></li>
+      <li>
+        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
+      </li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main class="container">
 
-    <!-- About + Skills -->
+    <!-- About + Skills Section -->
     <section id="about">
       <h2>About Me</h2>
       <p>
@@ -52,7 +55,7 @@
         <li>Survival developer</li>
       </ul>
 
-      <img src="images/minecraft-banner.jpg" alt="Minecraft Server Banner Image" class="banner-img" />
+      <img src="images/minecraft-banner.jpg" alt="Minecraft banner" class="banner-img" />
     </section>
 
     <!-- Contact -->
@@ -67,9 +70,23 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 DreamVision. All rights reserved. Built with 🧠 and ❤️ for the Minecraft community.</p>
+      <p>&copy; 2025 DreamVision. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
