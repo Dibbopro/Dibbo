@@ -1,6 +1,4 @@
-/* ---------------------- */
-/* RESET & BASE STYLES   */
-/* ---------------------- */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +9,12 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
   background-color: #f4f4f4;
-  transition: background-color 0.3s ease, color 0.3s ease;
   color: #111;
+  transition: background-color 0.3s, color 0.3s ease;
   height: 100%;
-  overflow-x: hidden;
 }
 
+/* Container */
 .container {
   max-width: 1000px;
   margin: auto;
@@ -27,15 +25,10 @@ html, body {
   text-align: center;
 }
 
-/* ---------------------- */
-/* HEADER SECTION         */
-/* ---------------------- */
+/* Header */
 .header-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 4rem;
   text-align: center;
+  padding-top: 4rem;
 }
 
 .profile-img {
@@ -54,29 +47,27 @@ h1 {
 
 .subtitle {
   font-size: 1.1rem;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
-/* ---------------------- */
-/* NAVIGATION             */
-/* ---------------------- */
+/* Navigation */
 nav {
   background: #fff;
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
   justify-content: center;
+  list-style: none;
   gap: 1.5rem;
 }
 
 .nav-links a {
   font-weight: bold;
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 .nav-links a:hover {
@@ -91,21 +82,18 @@ nav {
   color: inherit;
 }
 
-/* ---------------------- */
-/* SECTION BLOCKS         */
-/* ---------------------- */
+/* Sections */
 .section-block {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
   padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 3rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .skills-list {
+  list-style: square;
   padding-left: 1.5rem;
-  list-style-type: square;
   margin-top: 1rem;
 }
 
@@ -115,9 +103,7 @@ nav {
   border-radius: 10px;
 }
 
-/* ---------------------- */
-/* CONTACT SECTION        */
-/* ---------------------- */
+/* ✅ Contact Section - Classic */
 .contact-box {
   background-color: #f0f0f0;
   padding: 1.5rem;
@@ -133,27 +119,19 @@ nav {
 
 .contact-box a:hover {
   text-decoration: underline;
+  color: #008f4a;
 }
 
-/* ---------------------- */
-/* FOOTER STYLES          */
-/* ---------------------- */
+/* Footer */
 footer {
   background: #eee;
-  padding: 1.5rem 0;
-  margin-top: 4rem;
-  text-align: center;
   color: #111;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
 }
 
-body.dark-mode footer {
-  background-color: #151515;
-  color: #ccc;
-}
-
-/* ---------------------- */
-/* DARK MODE SUPPORT      */
-/* ---------------------- */
+/* Dark Mode */
 body.dark-mode {
   background-color: #0e0e0e;
   color: #f0f0f0;
@@ -164,7 +142,7 @@ body.dark-mode nav {
 }
 
 body.dark-mode .nav-links a {
-  color: #eaeaea;
+  color: #eee;
 }
 
 body.dark-mode .nav-links a:hover {
@@ -173,10 +151,11 @@ body.dark-mode .nav-links a:hover {
 
 body.dark-mode .section-block {
   background-color: #1d1d1d;
+  color: #eee;
 }
 
 body.dark-mode .contact-box {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255,255,255,0.05);
   color: #eee;
 }
 
@@ -188,12 +167,17 @@ body.dark-mode .contact-box a:hover {
   color: #33ffb3;
 }
 
-/* --------------------------- */
-/* ✨ SCROLL ANIMATIONS        */
-/* --------------------------- */
-.fade-in, .fade-in-up, .slide-in-left {
+body.dark-mode footer {
+  background-color: #151515;
+  color: #ccc;
+}
+
+/* Animations */
+.fade-in,
+.fade-in-up,
+.slide-in-left {
   opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: 0.6s ease;
 }
 
 .visible {
@@ -201,83 +185,15 @@ body.dark-mode .contact-box a:hover {
 }
 
 @keyframes fadeInUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {transform: translateY(30px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
 }
 
 .fade-in-up {
-  animation: fadeInUp 1.2s ease forwards;
+  animation: fadeInUp 1.2s forwards;
 }
 
-/* ------------------------------- */
-/* 📁 PROJECT CARDS & GRID         */
-/* ------------------------------- */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.project-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.project-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 1.2rem;
-}
-
-.project-info h3 {
-  margin-bottom: 0.5rem;
-  color: #00cc66;
-}
-
-.project-info p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #444;
-}
-
-/* Embedded YouTube video card */
-.project-video {
-  width: 100%;
-  height: 180px;
-  border: none;
-  display: block;
-}
-
-/* Dark Mode for Project Cards */
-body.dark-mode .project-card {
-  background-color: #1e1e1e;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.04);
-}
-
-body.dark-mode .project-info h3 {
-  color: #00ff88;
-}
-
-body.dark-mode .project-info p {
-  color: #ccc;
-}
-
-/* ---------------------- */
-/* RESPONSIVE STYLES      */
-/* ---------------------- */
+/* Responsive */
 @media screen and (max-width: 768px) {
   .nav-links {
     flex-direction: column;
@@ -290,11 +206,6 @@ body.dark-mode .project-info p {
 
   .section-block {
     padding: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .project-img,
-  .project-video {
-    height: 180px;
+    margin: 2rem 1rem;
   }
 }
