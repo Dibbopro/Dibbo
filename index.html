@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- 🔄 Loader -->
+  <!-- 🔄 LOADING SCREEN (5 SECONDS) -->
   <div id="loader">
     <div class="loader">
       <span class="box1"></span>
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <!-- ✅ Header -->
+  <!-- ⛏️ HEADER -->
   <header class="fade-in-up">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
@@ -27,7 +27,7 @@
     </div>
   </header>
 
-  <!-- ✅ Navigation -->
+  <!-- 📚 NAVIGATION -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -37,7 +37,7 @@
     </ul>
   </nav>
 
-  <!-- ✅ Main Content -->
+  <!-- 📦 MAIN CONTENT -->
   <main class="container">
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
@@ -67,14 +67,14 @@
     </section>
   </main>
 
-  <!-- ✅ Footer -->
+  <!-- 🧱 FOOTER -->
   <footer class="fade-in">
     <div class="container center-text">
-      <p>&copy; 2025 DreamVision. Built with love ⚒️</p>
+      <p>&copy; 2025 DreamVision. Built with Java & creativity ⚒️</p>
     </div>
   </footer>
 
-  <!-- ✅ Loader & Scroll Reveal Script -->
+  <!-- ✅ 5 SECOND LOADER CONTROL & REVEAL ANIMATION SCRIPT -->
   <script>
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
@@ -84,7 +84,7 @@
         setTimeout(() => {
           loader.style.display = "none";
         }, 400);
-      }, 1000); // Show loader for 1s
+      }, 5000); // Show loader for 5 seconds
     });
 
     document.addEventListener('DOMContentLoaded', () => {
