@@ -34,8 +34,8 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><button id="theme-toggle" aria-label="Toggle Theme">💡</button></li>
-      <li><button id="music-toggle" aria-label="Toggle Music">🎵</button></li>
+      <li><button id="theme-toggle">💡</button></li>
+      <li><button id="music-toggle">🎵</button></li>
     </ul>
   </nav>
 
@@ -76,46 +76,51 @@
     </div>
   </footer>
 
-  <!-- Script: Dark Mode + Music Toggle -->
+  <!-- Audio Element -->
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-betterdays.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const body = document.body;
       const themeToggle = document.getElementById('theme-toggle');
       const musicToggle = document.getElementById('music-toggle');
+      const audio = document.getElementById('bg-music');
 
       // Dark Mode
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-          document.documentElement.classList.toggle('dark-mode');
-          localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
-        });
-      }
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
 
-      // Music Toggle
-      const musicUrl = 'https://www.bensound.com/bensound-music/bensound-betterdays.mp3';
-      window.audioPlayer = window.audioPlayer || new Audio(musicUrl);
-      audioPlayer.loop = true;
-      audioPlayer.volume = 0.5;
+      // Music
+      const musicState = localStorage.getItem('music');
+      if (musicState === 'on') musicToggle.textContent = '🔊';
 
-      let isPlaying = localStorage.getItem('music') === 'on';
-
-      if (isPlaying) {
-        audioPlayer.play().catch(() => {});
-        if (musicToggle) musicToggle.textContent = '🔊';
-      }
-
-      if (musicToggle) {
-        musicToggle.addEventListener('click', () => {
-          if (audioPlayer.paused) {
-            audioPlayer.play();
+      musicToggle.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play().then(() => {
             musicToggle.textContent = '🔊';
             localStorage.setItem('music', 'on');
-          } else {
-            audioPlayer.pause();
-            musicToggle.textContent = '🎵';
-            localStorage.setItem('music', 'off');
+          }).catch(() => {
+            alert("Autoplay blocked. Please click to allow music.");
+          });
+        } else {
+          audio.pause();
+          musicToggle.textContent = '🎵';
+          localStorage.setItem('music', 'off');
+        }
+      });
+
+      if (musicState === 'on') {
+        window.addEventListener('click', () => {
+          if (audio.paused) {
+            audio.play().catch(() => {});
+            musicToggle.textContent = '🔊';
           }
-        });
+        }, { once: true });
       }
     });
   </script>
