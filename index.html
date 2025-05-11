@@ -6,15 +6,14 @@
   <title>DreamVision | Minecraft Server Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.png" />
-
   <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
 </head>
 <body>
 
-  <!-- Minecraft Particle Background -->
+  <!-- ✅ Particle Background -->
   <div id="particles-js"></div>
 
-  <!-- Header -->
+  <!-- ✅ Header -->
   <header class="fade-in-up">
     <div class="container header-container">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
@@ -25,7 +24,7 @@
     </div>
   </header>
 
-  <!-- Navigation -->
+  <!-- ✅ Navbar -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -35,14 +34,14 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- ✅ Main Content -->
   <main class="container">
     <section id="about" class="fade-in-up">
       <h2>About Me</h2>
       <p>
-        I'm a Minecraft server developer with top skills in game creation.
-        I co-founded <strong>NeonStudios</strong>, work with <strong>Crew Gaming</strong>,
-        manage <strong>CreeperMC</strong>, and created <strong>VoidNetwork</strong>.
+        I'm a Minecraft server developer with top experience making custom game modes.
+        I co-founded <strong>NeonStudios</strong>, worked on <strong>Crew Gaming</strong>,
+        manage <strong>CreeperMC</strong>, and built <strong>VoidNetwork</strong>.
       </p>
       <h3>Specializations</h3>
       <ul class="skills-list">
@@ -62,13 +61,14 @@
     </section>
   </main>
 
+  <!-- ✅ Footer -->
   <footer class="fade-in">
     <div class="container">
       <p>&copy; 2025 DreamVision. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ✅ Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="particles-config.js"></script>
   <script>
@@ -76,7 +76,6 @@
       const toggle = document.getElementById('theme-toggle');
       const body = document.body;
       const savedTheme = localStorage.getItem('theme');
-
       if (savedTheme === 'dark') body.classList.add('dark-mode');
 
       toggle?.addEventListener('click', () => {
@@ -87,14 +86,14 @@
       const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
       function reveal() {
         animatedItems.forEach(el => {
-          const top = el.getBoundingClientRect().top;
-          if (top < window.innerHeight - 100) {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add('visible');
             el.style.animationPlayState = 'running';
           }
         });
       }
-      window.addEventListener("scroll", reveal);
+
+      window.addEventListener('scroll', reveal);
       reveal();
     });
   </script>
