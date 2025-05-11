@@ -71,31 +71,37 @@
   <!-- ✅ Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="particles-config.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
-      const body = document.body;
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') body.classList.add('dark-mode');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
 
-      toggle?.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-      });
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+    }
 
-      const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
-      function reveal() {
-        animatedItems.forEach(el => {
-          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-            el.classList.add('visible');
-            el.style.animationPlayState = 'running';
-          }
-        });
-      }
-
-      window.addEventListener('scroll', reveal);
-      reveal();
+    toggle?.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem(
+        'theme',
+        body.classList.contains('dark-mode') ? 'dark' : 'light'
+      );
     });
-  </script>
+
+    // Scroll animation
+    const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
+    function reveal() {
+      animatedItems.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add('visible');
+          el.style.animationPlayState = 'running';
+        }
+      });
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+  });
+</script>
 </body>
 </html>
