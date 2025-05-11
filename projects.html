@@ -25,9 +25,8 @@
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
-      </li>
+      <li><button id="theme-toggle" aria-label="Toggle Theme">💡</button></li>
+      <li><button id="music-toggle" aria-label="Toggle Music">🎵</button></li>
     </ul>
   </nav>
 
@@ -43,7 +42,6 @@
             <p>Server-side engineering, plugin development, and full-stack system tuning.</p>
           </div>
         </div>
-
         <div class="project-card">
           <img src="images/voidnetwork.jpg" alt="VoidNetwork Minecraft Server" />
           <div class="card-content">
@@ -64,7 +62,6 @@
             <p>Highlights of systems and gameplay from my previous work.</p>
           </div>
         </div>
-
         <div class="project-card video-card">
           <div class="responsive-video">
             <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="CreeperMC Trailer"></iframe>
@@ -85,24 +82,25 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
+  <!-- Script: Dark Mode + Music Toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
       const body = document.body;
+      const themeToggle = document.getElementById('theme-toggle');
+      const musicToggle = document.getElementById('music-toggle');
       const savedTheme = localStorage.getItem('theme');
 
+      // Dark Mode
       if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
       }
 
-      if (toggle) {
-        toggle.addEventListener('click', () => {
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
           body.classList.toggle('dark-mode');
           localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
       }
-    });
-  </script>
-</body>
-</html>
+
+      // Music Toggle
+      const audio = new Audio('https://www.bensound.com/bensound-music/b
