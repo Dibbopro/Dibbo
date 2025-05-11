@@ -11,7 +11,7 @@
 
   <!-- ✅ Header -->
   <header class="fade-in-up">
-    <div class="container header-container center-text">
+    <div class="container header-container">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
       <h1>Hi, I'm <span class="highlight">DreamVision</span></h1>
       <p class="subtitle">Minecraft Server Developer • Plugin Architect • System Manager</p>
@@ -30,6 +30,8 @@
 
   <!-- ✅ Main Content -->
   <main class="container">
+
+    <!-- About Section -->
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
       <p>
@@ -48,42 +50,54 @@
       <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
     </section>
 
+    <!-- ✅ Enhanced Contact Section -->
     <section id="contact" class="fade-in section-block">
-      <h2>Contact Me</h2>
+      <h2>📬 Contact Me</h2>
+
       <div class="contact-box">
-        <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
-        <p>💬 Discord: <strong>itzdibbozz2</strong></p>
-        <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
+        <div class="contact-item">
+          <strong>📧 Email:</strong>
+          <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>💬 Discord:</strong>
+          <span>itzdibbozz2</span>
+        </div>
+
+        <div class="contact-item">
+          <strong>🐙 GitHub:</strong>
+          <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a>
+        </div>
       </div>
     </section>
+
   </main>
 
   <!-- ✅ Footer -->
   <footer class="fade-in">
     <div class="container center-text">
-      <p>&copy; 2025 DreamVision. Built with Java & creativity ⚒️</p>
+      <p>&copy; 2025 DreamVision. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ✅ Theme Toggle & Scroll Reveal Script -->
+  <!-- ✅ Theme Toggle & Scroll Reveal -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
       const body = document.body;
       const savedTheme = localStorage.getItem('theme');
 
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-      }
+      if (savedTheme === 'dark') body.classList.add('dark-mode');
 
       toggle?.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
       });
 
-      const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
+      const items = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
       function reveal() {
-        animatedItems.forEach(el => {
+        items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add('visible');
             el.style.animationPlayState = 'running';
@@ -91,7 +105,7 @@
         });
       }
 
-      window.addEventListener('scroll', reveal);
+      window.addEventListener("scroll", reveal);
       reveal();
     });
   </script>
