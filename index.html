@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- ✅ Header -->
+  <!-- Header -->
   <header class="fade-in-up">
     <div class="container header-container">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
@@ -18,7 +18,7 @@
     </div>
   </header>
 
-  <!-- ✅ Navigation -->
+  <!-- Navigation -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -28,15 +28,16 @@
     </ul>
   </nav>
 
-  <!-- ✅ Main Content -->
+  <!-- Main Content -->
   <main class="container">
+
     <!-- About Section -->
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
       <p>
         I'm a Minecraft server developer with strong experience in gamemode design and backend plugin systems.
         I co-founded <strong>NeonStudios</strong>, contributed to <strong>Crew Gaming</strong>,
-        and developed systems for <strong>CreeperMC</strong> and <strong>VoidNetwork</strong>.
+        managed <strong>CreeperMC</strong>, and developed <strong>VoidNetwork</strong>.
       </p>
 
       <h3>Specializations</h3>
@@ -50,41 +51,44 @@
       <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
     </section>
 
-    <!-- ✅ Classic Contact Section -->
+    <!-- ✅ Contact Section (Restored) -->
     <section id="contact" class="fade-in section-block">
       <h2>Contact Me</h2>
-      
+
       <div class="contact-box">
         <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
         <p>💬 Discord: <strong>itzdibbozz2</strong></p>
         <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
       </div>
     </section>
+
   </main>
 
-  <!-- ✅ Footer -->
+  <!-- Footer -->
   <footer class="fade-in">
     <div class="container center-text">
       <p>&copy; 2025 DreamVision. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ✅ Toggle Theme + Scroll Animation -->
+  <!-- Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const body = document.body;
       const toggle = document.getElementById("theme-toggle");
+      const body = document.body;
       const savedTheme = localStorage.getItem("theme");
 
-      if (savedTheme === "dark") body.classList.add("dark-mode");
+      if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+      }
 
       toggle?.addEventListener("click", () => {
         body.classList.toggle("dark-mode");
         localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
-      const items = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left');
-      const reveal = () => {
+      const items = document.querySelectorAll(".fade-in, .fade-in-up, .slide-in-left");
+      function reveal() {
         items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add("visible");
