@@ -87,16 +87,21 @@
 
   <!-- Theme Toggle Script -->
   <script>
-    const toggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-mode');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
 
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          body.classList.toggle('dark-mode');
+          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+      }
     });
   </script>
 </body>
