@@ -35,8 +35,9 @@
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
       <p>
-        I’m a highly experienced Minecraft server developer focused on advanced gamemode systems and full-stack backend plugins.
-        I co-founded <strong>NeonStudios</strong>, worked with <strong>Crew Gaming</strong>, manage <strong>CreeperMC</strong>, and built <strong>VoidNetwork</strong>.
+        I'm a Minecraft server developer with deep experience in custom gamemodes and plugin architecture.
+        I co-founded <strong>NeonStudios</strong>, worked on <strong>Crew Gaming</strong>,
+        led <strong>CreeperMC</strong>, and created the core for <strong>VoidNetwork</strong>.
       </p>
 
       <h3>Specializations</h3>
@@ -47,27 +48,36 @@
         <li>Balanced Survival game modes</li>
       </ul>
 
-      <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
+      <img src="images/banner.jpg" alt="Minecraft banner" class="banner-img" />
     </section>
 
-    <!-- ✅ Enhanced Contact Section -->
+    <!-- ✅ Stylish Contact Section -->
     <section id="contact" class="fade-in section-block">
-      <h2>📬 Contact Me</h2>
+      <h2 class="contact-title">📬 Contact Me</h2>
 
-      <div class="contact-box">
-        <div class="contact-item">
-          <strong>📧 Email:</strong>
-          <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a>
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="contact-icon">📧</span>
+          <div class="contact-details">
+            <label>Email</label>
+            <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>💬 Discord:</strong>
-          <span>itzdibbozz2</span>
+        <div class="contact-row">
+          <span class="contact-icon">💬</span>
+          <div class="contact-details">
+            <label>Discord</label>
+            <p>itzdibbozz2</p>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>🐙 GitHub:</strong>
-          <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a>
+        <div class="contact-row">
+          <span class="contact-icon">🐙</span>
+          <div class="contact-details">
+            <label>GitHub</label>
+            <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a>
+          </div>
         </div>
       </div>
     </section>
@@ -81,26 +91,26 @@
     </div>
   </footer>
 
-  <!-- ✅ Theme Toggle & Scroll Reveal -->
+  <!-- ✅ Script: Theme Toggle & Scroll Reveal -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
+    document.addEventListener("DOMContentLoaded", () => {
       const body = document.body;
-      const savedTheme = localStorage.getItem('theme');
+      const toggle = document.getElementById("theme-toggle");
+      const savedTheme = localStorage.getItem("theme");
 
-      if (savedTheme === 'dark') body.classList.add('dark-mode');
+      if (savedTheme === "dark") body.classList.add("dark-mode");
 
-      toggle?.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      toggle?.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
-      const items = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
-      function reveal() {
+      const items = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left');
+      const reveal = () => {
         items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-            el.classList.add('visible');
-            el.style.animationPlayState = 'running';
+            el.classList.add("visible");
+            el.style.animationPlayState = "running";
           }
         });
       }
