@@ -10,11 +10,7 @@
 </head>
 <body>
 
-  <!-- 🔹 Particle Background + Overlay -->
-  <div id="particles-js"></div>
-  <div class="overlay"></div>
-
-  <!-- 🔹 Header Section -->
+  <!-- ✅ CLEAN HEADER -->
   <header class="fade-in-up">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
@@ -23,7 +19,7 @@
     </div>
   </header>
 
-  <!-- 🔹 Navigation -->
+  <!-- ✅ NAVIGATION -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -33,7 +29,7 @@
     </ul>
   </nav>
 
-  <!-- 🔹 Main Content -->
+  <!-- ✅ MAIN CONTENT -->
   <main class="container">
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
@@ -56,7 +52,7 @@
       <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
     </section>
 
-    <!-- 🔹 Contact -->
+    <!-- ✅ CONTACT -->
     <section id="contact" class="fade-in section-block">
       <h2>Contact Me</h2>
       <div class="contact-box">
@@ -67,29 +63,30 @@
     </section>
   </main>
 
-  <!-- 🔹 Footer -->
-  <footer class="fade-in">
-    <div class="container center-text">
-      <p>&copy; 2025 DreamVision. Crafted with Java & plugins ⚒️</p>
+  <!-- ✅ FOOTER -->
+  <footer class="fade-in center-text">
+    <div class="container">
+      <p>&copy; 2025 DreamVision. Built with Java 💚</p>
     </div>
   </footer>
 
-  <!-- 🔹 Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="particles-config.js"></script>
+  <!-- ✅ SCRIPT: THEME TOGGLE & ANIMATIONS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
       const body = document.body;
       const savedTheme = localStorage.getItem('theme');
 
-      if (savedTheme === 'dark') body.classList.add('dark-mode');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
 
       toggle?.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
       });
 
+      // Scroll reveal effect
       const items = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
       function reveal() {
         items.forEach(el => {
