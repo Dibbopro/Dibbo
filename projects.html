@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DreamVision | Projects</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.png" />
 </head>
 <body>
 
   <!-- Header -->
-  <header>
+  <header class="fade-in-up">
     <div class="container header-container">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
       <div>
@@ -20,19 +21,17 @@
   </header>
 
   <!-- Navigation -->
-  <nav>
+  <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
-      </li>
+      <li><button id="theme-toggle" aria-label="Toggle Theme">💡</button></li>
     </ul>
   </nav>
 
-  <!-- Projects Section -->
-  <main class="container">
+  <!-- Projects -->
+  <main class="container fade-in-up">
     <section id="projects">
       <h2 class="section-title">⚒️ Server Projects</h2>
       <div class="projects grid">
@@ -79,29 +78,38 @@
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer class="fade-in">
     <div class="container">
       <p>&copy; 2025 DreamVision. Built by hand in Java & love 🧠💖</p>
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
+  <!-- Animation Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
       const body = document.body;
       const savedTheme = localStorage.getItem('theme');
 
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-      }
+      if (savedTheme === 'dark') body.classList.add('dark-mode');
 
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          body.classList.toggle('dark-mode');
-          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      toggle?.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+
+      const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
+      function reveal() {
+        animatedItems.forEach(el => {
+          const top = el.getBoundingClientRect().top;
+          if (top < window.innerHeight - 100) {
+            el.classList.add('visible');
+            el.style.animationPlayState = 'running';
+          }
         });
       }
+      window.addEventListener("scroll", reveal);
+      reveal();
     });
   </script>
 </body>
