@@ -1,129 +1,297 @@
-/* Base Reset */
+/* -------------------- */
+/* 🌐 RESET & BASE SETUP */
+/* -------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+
+html,
+body {
   height: 100%;
-  overflow-x: hidden;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
-  transition: background-color 0.4s, color 0.4s;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* ✅ Default Light Theme (base) */
+/* Light Mode (default) */
 body {
   background-color: #f4f4f4;
   color: #111;
   z-index: 1;
 }
 
-/* ✅ Particle canvas behind */
+/* -------------------- */
+/* PARTICLE BACKGROUND */
+/* -------------------- */
 #particles-js {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -10;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   pointer-events: none;
+  overflow: hidden;
 }
 
-/* Navbar */
+/* Optional dark overlay for readability */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* -------------------- */
+/* NAVIGATION           */
+/* -------------------- */
 nav {
   background: #ffffff;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 12px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .nav-links {
-  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  list-style: none;
+  gap: 2rem;
 }
+
 .nav-links a {
-  color: #222;
+  color: #111;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00cc66;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* -------------------- */
+/* HEADER               */
+/* -------------------- */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.highlight {
+  color: #00cc66;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* -------------------- */
+/* MAIN SECTION         */
+/* -------------------- */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1.5rem;
+}
+
+.section-block {
+  margin-top: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Skills List */
+.skills-list {
+  list-style: square;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Banner Image */
+.banner-img {
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+/* -------------------- */
+/* CONTACT SECTION      */
+/* -------------------- */
+.contact-box {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.contact-box a {
+  color: #00cc66;
   text-decoration: none;
 }
 
-/* Header */
-.profile-img {
-  width: 100px;
-  border-radius: 50%;
-}
-.highlight {
-  color: #00cc67;
-}
-.banner-img {
-  width: 100%;
-  margin-top: 1rem;
-}
-.skills-list {
-  padding-left: 1.5rem;
+.contact-box a:hover {
+  text-decoration: underline;
 }
 
-/* Project Cards */
-.project-card {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 1rem;
-  border-radius: 10px;
-  transition: 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-.project-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.project-card:hover {
-  transform: scale(1.03);
-}
-
-/* Footer */
+/* -------------------- */
+/* FOOTER               */
+/* -------------------- */
 footer {
   background: #ddd;
+  color: #111;
   text-align: center;
-  padding: 1rem;
-  color: #222;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
 }
 
-/* ✅ Dark Mode Overrides */
-body.dark-mode {
-  background-color: #0a0a0a;
-  color: #fafafa;
+.center-text {
+  text-align: center;
 }
+
+/* -------------------- */
+/* DARK MODE STYLES     */
+/* -------------------- */
+body.dark-mode {
+  background-color: #0b0b0b;
+  color: #eaeaea;
+}
+
 body.dark-mode nav {
   background-color: #111;
-  color: white;
+  box-shadow: none;
 }
 body.dark-mode .nav-links a {
-  color: white;
+  color: #eaeaea;
 }
+body.dark-mode .nav-links a:hover {
+  color: #00ff88;
+}
+
+body.dark-mode .contact-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #eaeaea;
+}
+
 body.dark-mode footer {
   background: #151515;
   color: #eee;
 }
-body.dark-mode .project-card {
-  background: rgba(255, 255, 255, 0.05);
-}
 
-/* ✅ Particle Style Unaffected */
-
-/* ✅ Animations */
+/* -------------------- */
+/* ANIMATIONS           */
+/* -------------------- */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-.fade-in { animation: fadeIn 1.2s ease forwards; }
-.fade-in-up { animation: fadeInUp 1.2s ease forwards; }
-.slide-in-left { animation: slideInLeft 1.2s ease forwards; }
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 1.2s ease forwards;
+}
+
+/* Scroll reveal visibility */
+.project-card,
+.fade-in,
+.fade-in-up,
+.slide-in-left {
+  opacity: 0;
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+  animation-play-state: running !important;
+}
+
+/* -------------------- */
+/* RESPONSIVE DESIGN    */
+/* -------------------- */
+@media screen and (max-width: 768px) {
+  .header-container {
+    padding-top: 3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
