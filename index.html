@@ -5,21 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DreamVision | Minecraft Server Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Minecraft Server Developer | Plugin Creator | System Manager. Explore my work with CreeperMC, Crew Gaming, NeonStudios, and VoidNetwork.">
+  <meta property="og:title" content="DreamVision | Minecraft Server Developer" />
+  <meta property="og:description" content="Experienced Minecraft developer & plugin creator. Custom solutions for high-performance servers." />
+  <meta property="og:image" content="images/profile.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <img src="images/profile.jpg" alt="DreamVision Profile" class="profile-img" />
-      <h1>Hi, I'm DreamVision</h1>
-      <p>Minecraft Server Developer | Plugin Creator | System Manager</p>
+    <div class="container header-container">
+      <img src="images/profile.jpg" alt="DreamVision Profile Picture" class="profile-img" />
+      <div>
+        <h1>Hi, I'm <span class="highlight">DreamVision</span></h1>
+        <p>Minecraft Server Developer • Plugin Architect • System Manager</p>
+      </div>
     </div>
   </header>
 
   <nav>
     <ul class="nav-links">
-      <li><a href="#about">About Me</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <!-- Optional: <li><button id="theme-toggle">🌓</button></li> -->
     </ul>
   </nav>
 
@@ -27,45 +41,70 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I'm a Minecraft server developer with a passion for crafting custom, high-performance experiences.
-        I'm one of the owners of <strong>NeonStudios</strong>, a team specializing in professional server development.
-        I work with <strong>Crew Gaming</strong> (YouTuber) on advanced game systems, and I manage development for <strong>CreeperMC</strong>.
-        I have developed <strong>VoidNetwork</strong>.
+        I'm a Minecraft developer with a passion for building custom, lag-free server experiences.
+        As one of the owners of <strong>NeonStudios</strong>, I work with talented devs to craft advanced features.
+        I collaborate with <strong>Crew Gaming</strong> (YouTuber), maintain <strong>CreeperMC</strong>, and built <strong>VoidNetwork</strong> from the ground up.
       </p>
-      <img src="images/minecraft-banner.jpg" alt="Minecraft Banner" class="banner-img" />
+      <img src="images/minecraft-banner.jpg" alt="Minecraft Environment Banner" class="banner-img" />
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Java / Spigot / Bukkit</li>
+        <li>Plugin System Architecture</li>
+        <li>Linux & Server Deployment</li>
+        <li>MySQL / MongoDB</li>
+        <li>Optimization & Debugging</li>
+        <li>Version Control (Git, GitHub)</li>
+      </ul>
     </section>
 
     <section id="projects">
       <h2>My Work</h2>
-      <div class="projects">
+      <div class="projects grid">
         <div class="project-card">
-          <img src="images/creepermc.jpg" alt="CreeperMC Server" />
+          <img src="images/creepermc.jpg" alt="CreeperMC Minecraft Server" />
           <h3>CreeperMC</h3>
-          <p>Full-stack development, plugin management, and server optimization for a growing Minecraft network.</p>
+          <p>Full-stack server development and system optimization for a fast-growing player base.</p>
         </div>
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork Server" />
+          <img src="images/voidnetwork.jpg" alt="VoidNetwork Minecraft Server" />
           <h3>VoidNetwork</h3>
-          <p>Custom plugin development and backend systems for a unique multiplayer experience.</p>
+          <p>Built custom plugins, backend services, and unique in-game mechanics from scratch.</p>
         </div>
         <div class="project-card">
-          <iframe width="100%" height="200" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" frameborder="0" allowfullscreen></iframe>
+          <div class="responsive-video">
+            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" frameborder="0" allowfullscreen></iframe>
+          </div>
           <h3>Worked Servers Trailer</h3>
-          <p>A showcase trailer of the Minecraft servers I've worked on, including CreeperMC and VoidNetwork.</p>
+          <p>A video preview featuring CreeperMC, VoidNetwork, and more.</p>
         </div>
         <div class="project-card">
-          <iframe width="100%" height="200" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" frameborder="0" allowfullscreen></iframe>
+          <div class="responsive-video">
+            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" frameborder="0" allowfullscreen></iframe>
+          </div>
           <h3>CreeperMC Season 3 Trailer</h3>
-          <p>Official trailer for the third season of CreeperMC, featuring new features and systems developed by me.</p>
+          <p>Showcasing new systems, features, and game modes I helped build and manage.</p>
         </div>
       </div>
     </section>
+
+    <!-- Optional: Testimonials -->
+    <!--
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <blockquote>
+        "DreamVision was crucial to launching our new season. Super clean code and incredible systems!" – NeonStudios
+      </blockquote>
+    </section>
+    -->
 
     <section id="contact">
       <h2>Contact Me</h2>
       <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
       <p>💬 Discord: <strong>itzdibbozz2</strong></p>
-      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank" rel="noopener noreferrer">github.com/DreamVisionMC</a></p>
     </section>
   </main>
 
@@ -74,5 +113,15 @@
       <p>&copy; 2025 DreamVision. All rights reserved. Crafted with ❤️ for the Minecraft community.</p>
     </div>
   </footer>
+
+  <!-- Optional dark mode script -->
+  <!--
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle && toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+  -->
 </body>
 </html>
