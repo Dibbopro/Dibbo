@@ -9,16 +9,7 @@
 </head>
 <body>
 
-  <!-- 🔄 LOADING SCREEN (5 SECONDS) -->
-  <div id="loader">
-    <div class="loader">
-      <span class="box1"></span>
-      <span class="box2"></span>
-      <span class="box3"></span>
-    </div>
-  </div>
-
-  <!-- ⛏️ HEADER -->
+  <!-- ✅ Header -->
   <header class="fade-in-up">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
@@ -27,7 +18,7 @@
     </div>
   </header>
 
-  <!-- 📚 NAVIGATION -->
+  <!-- ✅ Navigation -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -37,7 +28,7 @@
     </ul>
   </nav>
 
-  <!-- 📦 MAIN CONTENT -->
+  <!-- ✅ Main Content -->
   <main class="container">
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
@@ -67,26 +58,15 @@
     </section>
   </main>
 
-  <!-- 🧱 FOOTER -->
+  <!-- ✅ Footer -->
   <footer class="fade-in">
     <div class="container center-text">
       <p>&copy; 2025 DreamVision. Built with Java & creativity ⚒️</p>
     </div>
   </footer>
 
-  <!-- ✅ 5 SECOND LOADER CONTROL & REVEAL ANIMATION SCRIPT -->
+  <!-- ✅ Theme Toggle & Scroll Reveal Script -->
   <script>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.transition = "opacity 0.4s ease";
-        setTimeout(() => {
-          loader.style.display = "none";
-        }, 400);
-      }, 5000); // Show loader for 5 seconds
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
       const body = document.body;
