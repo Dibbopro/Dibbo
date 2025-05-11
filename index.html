@@ -6,11 +6,19 @@
   <title>DreamVision | Minecraft Server Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.png" />
-  <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
 </head>
 <body>
 
-  <!-- ✅ CLEAN HEADER -->
+  <!-- 🔄 Loader -->
+  <div id="loader">
+    <div class="loader">
+      <span class="box1"></span>
+      <span class="box2"></span>
+      <span class="box3"></span>
+    </div>
+  </div>
+
+  <!-- ✅ Header -->
   <header class="fade-in-up">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
@@ -19,7 +27,7 @@
     </div>
   </header>
 
-  <!-- ✅ NAVIGATION -->
+  <!-- ✅ Navigation -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -29,19 +37,16 @@
     </ul>
   </nav>
 
-  <!-- ✅ MAIN CONTENT -->
+  <!-- ✅ Main Content -->
   <main class="container">
     <section id="about" class="fade-in-up section-block">
       <h2>About Me</h2>
       <p>
         I’m a highly experienced Minecraft server developer focused on advanced gamemode systems and full-stack backend plugins.
-      </p>
-      <p>
-        I'm the co-founder of <strong>NeonStudios</strong>, backend manager at <strong>Crew Gaming</strong>,
-        and the core architect behind <strong>VoidNetwork</strong> and <strong>CreeperMC</strong>.
+        I co-founded <strong>NeonStudios</strong>, worked with <strong>Crew Gaming</strong>, manage <strong>CreeperMC</strong>, and built <strong>VoidNetwork</strong>.
       </p>
 
-      <h3>What I Specialize In</h3>
+      <h3>Specializations</h3>
       <ul class="skills-list">
         <li>Custom Bedwars systems</li>
         <li>LifeSteal plugin development</li>
@@ -52,7 +57,6 @@
       <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
     </section>
 
-    <!-- ✅ CONTACT -->
     <section id="contact" class="fade-in section-block">
       <h2>Contact Me</h2>
       <div class="contact-box">
@@ -63,15 +67,26 @@
     </section>
   </main>
 
-  <!-- ✅ FOOTER -->
-  <footer class="fade-in center-text">
-    <div class="container">
-      <p>&copy; 2025 DreamVision. Built with Java 💚</p>
+  <!-- ✅ Footer -->
+  <footer class="fade-in">
+    <div class="container center-text">
+      <p>&copy; 2025 DreamVision. Built with love ⚒️</p>
     </div>
   </footer>
 
-  <!-- ✅ SCRIPT: THEME TOGGLE & ANIMATIONS -->
+  <!-- ✅ Loader & Scroll Reveal Script -->
   <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.transition = "opacity 0.4s ease";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 400);
+      }, 1000); // Show loader for 1s
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
       const body = document.body;
@@ -86,16 +101,16 @@
         localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
       });
 
-      // Scroll reveal effect
-      const items = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
+      const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
       function reveal() {
-        items.forEach(el => {
+        animatedItems.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add('visible');
             el.style.animationPlayState = 'running';
           }
         });
       }
+
       window.addEventListener('scroll', reveal);
       reveal();
     });
