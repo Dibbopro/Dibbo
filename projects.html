@@ -14,7 +14,7 @@
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
       <div>
         <h1>Featured Projects</h1>
-        <p>Explore creative Minecraft systems, servers, and trailers I've contributed to.</p>
+        <p>Explore custom Minecraft servers, systems & showcases I've built.</p>
       </div>
     </div>
   </header>
@@ -25,6 +25,9 @@
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="index.html">Home</a></li>
+      <li>
+        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
+      </li>
     </ul>
   </nav>
 
@@ -33,52 +36,44 @@
     <section id="projects">
       <h2 class="section-title">⚒️ Server Projects</h2>
       <div class="projects grid">
-
-        <!-- CreeperMC -->
         <div class="project-card">
           <img src="images/creepermc.jpg" alt="CreeperMC Server Screenshot" />
           <div class="card-content">
             <h3>CreeperMC</h3>
-            <p>A professionally-run server network where I lead plugin development, server architecture, and performance tuning.</p>
+            <p>Server-side engineering, plugin development, and full-stack system tuning.</p>
           </div>
         </div>
 
-        <!-- VoidNetwork -->
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork Server Screenshot" />
+          <img src="images/voidnetwork.jpg" alt="VoidNetwork Minecraft Server" />
           <div class="card-content">
             <h3>VoidNetwork</h3>
-            <p>Bespoke plugin systems and MMO-style gameplay. Full control over backend features, balancing, and network optimization.</p>
+            <p>Custom plugin ecosystem and scalable back-end for immersive multiplayer experience.</p>
           </div>
         </div>
-
       </div>
 
       <h2 class="section-title">🎬 Trailers & Showcases</h2>
       <div class="projects grid">
-
-        <!-- Worked Servers Trailer -->
         <div class="project-card video-card">
           <div class="responsive-video">
-            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" title="Worked Servers Trailer" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Worked Servers Trailer"></iframe>
           </div>
           <div class="card-content">
             <h3>Worked Servers Trailer</h3>
-            <p>A sizzle reel for the amazing servers I’ve contributed to, including Bedwars, PvP Practice, and CreeperMC content servers.</p>
+            <p>Highlights of systems and gameplay from my previous work.</p>
           </div>
         </div>
 
-        <!-- CreeperMC Trailer -->
         <div class="project-card video-card">
           <div class="responsive-video">
-            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" title="CreeperMC Season 3 Trailer" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="CreeperMC Trailer"></iframe>
           </div>
           <div class="card-content">
             <h3>CreeperMC Season 3</h3>
-            <p>Official launch trailer, demonstrating brand-new systems and survival mechanics I scripted and launched.</p>
+            <p>Trailer for major feature additions, custom game modes & plugin architecture.</p>
           </div>
         </div>
-
       </div>
     </section>
   </main>
@@ -86,9 +81,23 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 DreamVision. Projects proudly built in Java with ❤️.</p>
+      <p>&copy; 2025 DreamVision. Built by hand in Java & love 🧠💖</p>
     </div>
   </footer>
 
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
