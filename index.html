@@ -8,12 +8,11 @@
   <link rel="icon" href="images/favicon.png" />
 
   <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
-  <meta property="og:title" content="DreamVision | Minecraft Server Developer">
-  <meta property="og:description" content="Custom Bedwars, LifeSteal, Practice PvP and Survival servers.">
-  <meta property="og:image" content="images/profile.jpg">
-  <meta property="og:url" content="https://your-portfolio-link.com">
 </head>
 <body>
+
+  <!-- Minecraft Particle Background -->
+  <div id="particles-js"></div>
 
   <!-- Header -->
   <header class="fade-in-up">
@@ -32,9 +31,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li>
-        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
-      </li>
+      <li><button id="theme-toggle" aria-label="Toggle Theme">💡</button></li>
     </ul>
   </nav>
 
@@ -43,20 +40,17 @@
     <section id="about" class="fade-in-up">
       <h2>About Me</h2>
       <p>
-        I'm a Minecraft server developer with leading experience in building specialized game types.
+        I'm a Minecraft server developer with top skills in game creation.
         I co-founded <strong>NeonStudios</strong>, work with <strong>Crew Gaming</strong>,
-        manage <strong>CreeperMC</strong>, and developed all aspects of <strong>VoidNetwork</strong>.
+        manage <strong>CreeperMC</strong>, and created <strong>VoidNetwork</strong>.
       </p>
-
       <h3>Specializations</h3>
       <ul class="skills-list">
-        <li>Minecraft server developer</li>
-        <li>Bedwars developer</li>
-        <li>LifeSteal developer</li>
-        <li>Practice PvP developer</li>
-        <li>Survival developer</li>
+        <li>Bedwars Developer</li>
+        <li>LifeSteal Developer</li>
+        <li>Practice PvP Developer</li>
+        <li>Survival Servers</li>
       </ul>
-
       <img src="images/banner.jpg" alt="Minecraft banner" class="banner-img" />
     </section>
 
@@ -64,18 +58,19 @@
       <h2>Contact Me</h2>
       <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
       <p>💬 Discord: <strong>itzdibbozz2</strong></p>
-      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank" rel="noopener noreferrer">github.com/DreamVisionMC</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="fade-in">
     <div class="container">
       <p>&copy; 2025 DreamVision. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Theme Toggle & Animation Script -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="particles-config.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
@@ -89,7 +84,6 @@
         localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
       });
 
-      // Animation Scroll Reveal
       const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
       function reveal() {
         animatedItems.forEach(el => {
