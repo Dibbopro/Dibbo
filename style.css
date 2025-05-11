@@ -1,215 +1,99 @@
-/* Base Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DreamVision | Minecraft Server Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.png" />
+</head>
+<body>
 
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
-  transition: background-color 0.4s ease, color 0.4s ease;
-  background: #f4f4f4;
-  color: #111;
-}
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
+  <!-- ✅ Header -->
+  <header class="fade-in-up">
+    <div class="container header-container center-text">
+      <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
+      <h1>Hi, I'm <span class="highlight">DreamVision</span></h1>
+      <p class="subtitle">Minecraft Server Developer • Plugin Architect • System Manager</p>
+    </div>
+  </header>
 
-/* Navigation */
-nav {
-  background: #fff;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-}
-.nav-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-}
-.nav-links a {
-  text-decoration: none;
-  font-weight: 600;
-  color: inherit;
-}
-.nav-links a:hover {
-  color: #00cc88;
-}
-#theme-toggle {
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+  <!-- ✅ Navigation -->
+  <nav class="slide-in-left">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><button id="theme-toggle" aria-label="Toggle Theme">💡</button></li>
+    </ul>
+  </nav>
 
-/* Header */
-.header-container {
-  text-align: center;
-  padding-top: 4rem;
-}
-.profile-img {
-  width: 120px;
-  border-radius: 50%;
-}
-h1 {
-  margin: 1rem 0 0.5rem;
-}
-.highlight {
-  color: #00cc66;
-}
-.subtitle {
-  opacity: 0.7;
-}
+  <!-- ✅ Main Content -->
+  <main class="container">
+    <section id="about" class="fade-in-up section-block">
+      <h2>About Me</h2>
+      <p>
+        I’m a highly experienced Minecraft server developer focused on advanced gamemode systems and full-stack backend plugins.
+        I co-founded <strong>NeonStudios</strong>, worked with <strong>Crew Gaming</strong>, manage <strong>CreeperMC</strong>, and built <strong>VoidNetwork</strong>.
+      </p>
 
-/* Main Sections */
-.section-block {
-  margin: 3rem 0;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.skills-list {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
-  line-height: 1.6;
-}
-.banner-img {
-  border-radius: 8px;
-  margin-top: 1rem;
-  width: 100%;
-}
+      <h3>Specializations</h3>
+      <ul class="skills-list">
+        <li>Custom Bedwars systems</li>
+        <li>LifeSteal plugin development</li>
+        <li>PvP Practice environments</li>
+        <li>Balanced Survival game modes</li>
+      </ul>
 
-/* Contact */
-.contact-box {
-  background-color: #f0f0f0;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
-.contact-box a {
-  color: #00cc66;
-  text-decoration: none;
-}
-.contact-box a:hover {
-  text-decoration: underline;
-}
+      <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
+    </section>
 
-/* Footer */
-footer {
-  margin-top: 4rem;
-  background: #eaeaea;
-  padding: 1.5rem 0;
-  text-align: center;
-  color: #111;
-}
-.center-text {
-  text-align: center;
-}
+    <section id="contact" class="fade-in section-block">
+      <h2>Contact Me</h2>
+      <div class="contact-box">
+        <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
+        <p>💬 Discord: <strong>itzdibbozz2</strong></p>
+        <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
+      </div>
+    </section>
+  </main>
 
-/* Animations */
-.fade-in, .fade-in-up, .slide-in-left {
-  opacity: 0;
-  transition: 0.8s ease-in-out;
-}
-.visible {
-  opacity: 1;
-}
-.fade-in-up {
-  animation: fadeInUp 1.2s ease forwards;
-}
-.fade-in {
-  animation: fadeIn 1s ease forwards;
-}
-.slide-in-left {
-  animation: slideInLeft 1.2s ease forwards;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+  <!-- ✅ Footer -->
+  <footer class="fade-in">
+    <div class="container center-text">
+      <p>&copy; 2025 DreamVision. Built with Java & creativity ⚒️</p>
+    </div>
+  </footer>
 
-/* 🔄 Loader Styles */
-#loader {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0e0e0e;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.loader {
-  width: 112px;
-  height: 112px;
-  position: relative;
-}
-.box1, .box2, .box3 {
-  border: 16px solid #f5f5f5;
-  box-sizing: border-box;
-  position: absolute;
-  display: block;
-}
-.box1 {
-  width: 112px;
-  height: 48px;
-  margin-top: 64px;
-  margin-left: 0px;
-  animation: abox1 4s 1s forwards ease-in-out infinite;
-}
-.box2 {
-  width: 48px;
-  height: 48px;
-  margin-top: 0px;
-  margin-left: 0px;
-  animation: abox2 4s 1s forwards ease-in-out infinite;
-}
-.box3 {
-  width: 48px;
-  height: 48px;
-  margin-top: 0px;
-  margin-left: 64px;
-  animation: abox3 4s 1s forwards ease-in-out infinite;
-}
+  <!-- ✅ Theme Toggle & Scroll Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
 
-/* Loader keyframes */
-@keyframes abox1 {
-  0%   { width: 112px; height: 48px; margin-top: 64px; margin-left: 0px; }
-  25%  { width: 48px; height: 48px; }
-  75%  { height: 112px; margin-top: 0px; }
-  100% { width: 48px; height: 48px; margin-top: 0px; }
-}
-@keyframes abox2 {
-  0%, 25%   { width: 48px; height: 48px; margin-left: 0px; }
-  50%       { width: 112px; margin-left: 0px; }
-  62.5%     { width: 48px; margin-left: 64px; }
-}
-@keyframes abox3 {
-  0%, 12.5%   { width: 48px; height: 48px; margin-left: 64px; }
-  25%        { height: 112px; }
-  37.5%, 100%{ height: 48px; margin-top: 64px; }
-}
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
 
-/* Dark Mode */
-body.dark-mode {
-  background: #0d0d0d;
-  color: #e5e5e5;
-}
-body.dark-mode nav { background: #111; }
-body.dark-mode footer { background: #151515; color: #aaa; }
-body.dark-mode .section-block, body.dark-mode .contact-box {
-  background: rgba(255,255,255,0.04);
-}
+      toggle?.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+
+      const animatedItems = document.querySelectorAll('.fade-in, .fade-in-up, .slide-in-left, .project-card');
+      function reveal() {
+        animatedItems.forEach(el => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add('visible');
+            el.style.animationPlayState = 'running';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', reveal);
+      reveal();
+    });
+  </script>
+</body>
+</html>
