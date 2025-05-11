@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DreamVision | Projects</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Apply dark mode early -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
 </head>
 <body>
 
@@ -36,14 +43,15 @@
       <h2 class="section-title">⚒️ Server Projects</h2>
       <div class="projects grid">
         <div class="project-card">
-          <img src="images/creepermc.jpg" alt="CreeperMC Server Screenshot" />
+          <img src="images/creepermc.jpg" alt="CreeperMC Server" />
           <div class="card-content">
             <h3>CreeperMC</h3>
             <p>Server-side engineering, plugin development, and full-stack system tuning.</p>
           </div>
         </div>
+
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork Minecraft Server" />
+          <img src="images/voidnetwork.jpg" alt="VoidNetwork" />
           <div class="card-content">
             <h3>VoidNetwork</h3>
             <p>Custom plugin ecosystem and scalable back-end for immersive multiplayer experience.</p>
@@ -62,6 +70,7 @@
             <p>Highlights of systems and gameplay from my previous work.</p>
           </div>
         </div>
+
         <div class="project-card video-card">
           <div class="responsive-video">
             <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="CreeperMC Trailer"></iframe>
@@ -78,7 +87,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 DreamVision. Built by hand in Java & love 🧠💖</p>
+      <p>&copy; 2025 DreamVision. Built with Java & love 🧠💖</p>
     </div>
   </footer>
 
@@ -88,19 +97,7 @@
       const body = document.body;
       const themeToggle = document.getElementById('theme-toggle');
       const musicToggle = document.getElementById('music-toggle');
-      const savedTheme = localStorage.getItem('theme');
 
       // Dark Mode
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-      }
-
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-          body.classList.toggle('dark-mode');
-          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-        });
-      }
-
-      // Music Toggle
-      const audio = new Audio('https://www.bensound.com/bensound-music/b
