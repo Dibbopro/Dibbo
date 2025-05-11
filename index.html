@@ -8,10 +8,6 @@
   <link rel="icon" href="images/favicon.png" />
 
   <meta name="description" content="DreamVision – Minecraft Server Developer building custom games like Bedwars, LifeSteal & more." />
-  <meta property="og:title" content="DreamVision | Minecraft Server Developer">
-  <meta property="og:description" content="Custom Bedwars, LifeSteal, Practice PvP and Survival servers.">
-  <meta property="og:image" content="images/profile.jpg">
-  <meta property="og:url" content="https://your-portfolio-link.com">
 </head>
 <body>
 
@@ -32,16 +28,15 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li>
-        <button id="theme-toggle" aria-label="Toggle Theme">💡</button>
-      </li>
+      <li><button id="theme-toggle" aria-label="Toggle Theme">💡</button></li>
+      <li><button id="music-toggle" aria-label="Toggle Music">🎵</button></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main class="container">
 
-    <!-- About + Skills Section -->
+    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
       <p>
@@ -62,7 +57,7 @@
       <img src="images/minecraft-banner.jpg" alt="Minecraft banner" class="banner-img" />
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact Me</h2>
       <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
@@ -78,21 +73,42 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
+  <!-- Script: Dark Mode + Music Toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
       const body = document.body;
+      const themeToggle = document.getElementById('theme-toggle');
+      const musicToggle = document.getElementById('music-toggle');
       const savedTheme = localStorage.getItem('theme');
 
+      // Dark Mode
       if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
       }
 
-      if (toggle) {
-        toggle.addEventListener('click', () => {
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
           body.classList.toggle('dark-mode');
           localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+      }
+
+      // Music Toggle
+      const audio = new Audio('https://www.bensound.com/bensound-music/bensound-betterdays.mp3');
+      audio.loop = true;
+      audio.volume = 0.5;
+      let isPlaying = false;
+
+      if (musicToggle) {
+        musicToggle.addEventListener('click', () => {
+          if (isPlaying) {
+            audio.pause();
+            musicToggle.textContent = '🎵';
+          } else {
+            audio.play();
+            musicToggle.textContent = '🔊';
+          }
+          isPlaying = !isPlaying;
         });
       }
     });
