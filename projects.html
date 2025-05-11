@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DreamVision | Projects</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Apply dark mode early -->
   <script>
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark-mode');
@@ -37,13 +35,13 @@
     </ul>
   </nav>
 
-  <!-- Projects Section -->
+  <!-- Main Content -->
   <main class="container">
     <section id="projects">
       <h2 class="section-title">⚒️ Server Projects</h2>
       <div class="projects grid">
         <div class="project-card">
-          <img src="images/creepermc.jpg" alt="CreeperMC Server" />
+          <img src="images/creepermc.jpg" alt="CreeperMC Server Screenshot" />
           <div class="card-content">
             <h3>CreeperMC</h3>
             <p>Server-side engineering, plugin development, and full-stack system tuning.</p>
@@ -51,7 +49,7 @@
         </div>
 
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork" />
+          <img src="images/voidnetwork.jpg" alt="VoidNetwork Minecraft Server" />
           <div class="card-content">
             <h3>VoidNetwork</h3>
             <p>Custom plugin ecosystem and scalable back-end for immersive multiplayer experience.</p>
@@ -88,16 +86,3 @@
   <footer>
     <div class="container">
       <p>&copy; 2025 DreamVision. Built with Java & love 🧠💖</p>
-    </div>
-  </footer>
-
-  <!-- Script: Dark Mode + Music Toggle -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const body = document.body;
-      const themeToggle = document.getElementById('theme-toggle');
-      const musicToggle = document.getElementById('music-toggle');
-
-      // Dark Mode
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
