@@ -9,15 +9,15 @@
 <body>
 
   <!-- ✅ Header -->
-  <header class="fade-in-up full-width-section">
+  <header class="fade-in-up">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision Logo" class="profile-img" />
       <h1>My Projects</h1>
-      <p>Explore Minecraft servers, systems & plugins I’ve built.</p>
+      <p>Explore Minecraft servers, plugins, systems & showcases I've built.</p>
     </div>
   </header>
 
-  <!-- ✅ NAVIGATION BAR (the missing bit!) -->
+  <!-- ✅ NAVIGATION BAR -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
@@ -27,35 +27,35 @@
     </ul>
   </nav>
 
-  <!-- ✅ Main Section -->
+  <!-- ✅ Project Content -->
   <main class="main-wrap">
     <div class="container">
       <section class="fade-in-up section-block">
 
-        <!-- CreeperMC -->
+        <!-- Project 1 -->
         <div class="project-card">
-          <img src="images/creepermc.jpg" alt="CreeperMC Screenshot" class="project-img" />
+          <img src="images/creepermc.jpg" class="project-img" alt="CreeperMC Logo" />
           <div class="project-info">
             <h3>CreeperMC</h3>
-            <p>Complete system overhaul: plugin architecture, server balancing & event scripting.</p>
+            <p>Custom plugins, system balancing, and gamemode scripting for a highly active community.</p>
           </div>
         </div>
 
-        <!-- VoidNetwork -->
+        <!-- Project 2 -->
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork Screenshot" class="project-img" />
+          <img src="images/voidnetwork.jpg" class="project-img" alt="VoidNetwork" />
           <div class="project-info">
             <h3>VoidNetwork</h3>
-            <p>Scalable backend with matchmaking, weekly events, and a cracked LifeSteal gamemode.</p>
+            <p>Match-making, back-end integration, and scalable Minecraft gamemodes like LifeSteal.</p>
           </div>
         </div>
 
-        <!-- YouTube Trailer -->
+        <!-- Video Project -->
         <div class="project-card">
-          <iframe class="project-video" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Trailer"></iframe>
+          <iframe class="project-video" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen></iframe>
           <div class="project-info">
             <h3>Trailer / Showcase</h3>
-            <p>Highlight video of Minecraft projects styled and launched with backend plugins.</p>
+            <p>Gameplay + server architecture highlight across multiple builds + plugin systems.</p>
           </div>
         </div>
 
@@ -63,29 +63,27 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="fade-in center-text">
-    <div class="container">
-      <p>© 2025 DreamVision. Built with command blocks ⚡️</p>
+  <!-- ✅ Footer -->
+  <footer class="fade-in">
+    <div class="container center-text">
+      <p>© 2025 DreamVision | Powered by Blocks 🧱</p>
     </div>
   </footer>
 
   <!-- ✅ Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // dark mode toggle
       const toggle = document.getElementById("theme-toggle");
       const body = document.body;
       const saved = localStorage.getItem("theme");
       if (saved === "dark") body.classList.add("dark-mode");
 
       toggle?.addEventListener("click", () => {
-        body.classList.toggle('dark-mode');
+        body.classList.toggle("dark-mode");
         localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
-      // scroll reveal
-      const items = document.querySelectorAll(".fade-in, .fade-in-up, .project-card");
+      const items = document.querySelectorAll(".fade-in, .fade-in-up, .slide-in-left, .project-card");
       function reveal() {
         items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
@@ -97,6 +95,5 @@
       reveal();
     });
   </script>
-
 </body>
 </html>
