@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ✅ Header -->
   <header class="fade-in-up full-width-section">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision Logo" class="profile-img" />
@@ -17,7 +17,7 @@
     </div>
   </header>
 
-  <!-- Navigation -->
+  <!-- ✅ NAVIGATION BAR (yay, it's back!) -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
@@ -27,11 +27,12 @@
     </ul>
   </nav>
 
+  <!-- ✅ Main project content -->
   <main class="main-wrap">
     <div class="container">
       <section class="fade-in-up section-block">
 
-        <!-- CreeperMC Project -->
+        <!-- CreeperMC -->
         <div class="project-card">
           <img src="images/creepermc.jpg" alt="CreeperMC Screenshot" class="project-img" />
           <div class="project-info">
@@ -40,21 +41,21 @@
           </div>
         </div>
 
-        <!-- VoidNetwork Project -->
+        <!-- VoidNetwork -->
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="Void Network Screenshot" class="project-img" />
+          <img src="images/voidnetwork.jpg" alt="VoidNetwork Screenshot" class="project-img" />
           <div class="project-info">
             <h3>VoidNetwork</h3>
-            <p>Scalable backend with matchmaking, weekly events, and advanced LifeSteal gamemode.</p>
+            <p>Scalable backend, weekly events & advanced LifeSteal game system built from scratch.</p>
           </div>
         </div>
 
-        <!-- Trailer -->
+        <!-- YouTube Trailer -->
         <div class="project-card">
-          <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" class="project-video" title="Trailer" allowfullscreen></iframe>
+          <iframe class="project-video" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Trailer"></iframe>
           <div class="project-info">
             <h3>Trailer / Showcase</h3>
-            <p>Highlight video of servers styled and launched with custom plugins.</p>
+            <p>Highlight video of how I combined design, plugin code, and backend systems.</p>
           </div>
         </div>
 
@@ -62,35 +63,37 @@
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- ✅ Footer -->
   <footer class="fade-in center-text">
     <div class="container">
-      <p>© 2025 DreamVision. Built with creativity ✨</p>
+      <p>© 2025 DreamVision. Let's build things together 🔧</p>
     </div>
   </footer>
 
+  <!-- ✅ Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.getElementById("theme-toggle")
-      const body = document.body
-      const saved = localStorage.getItem("theme")
-      if (saved === "dark") body.classList.add("dark-mode");
+      const toggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") body.classList.add("dark-mode");
 
       toggle?.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
+        body.classList.toggle('dark-mode');
         localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
       const items = document.querySelectorAll(".fade-in, .fade-in-up, .project-card");
-      window.addEventListener("scroll", () => {
+      function reveal() {
         items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add("visible");
           }
         });
-      });
+      }
+      window.addEventListener("scroll", reveal);
+      reveal();
     });
   </script>
-
 </body>
 </html>
