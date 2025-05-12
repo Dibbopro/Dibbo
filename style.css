@@ -1,53 +1,45 @@
-/* ========== BASE & RESET ========== */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f4f4;
   color: #111;
   scroll-behavior: smooth;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100%;
 }
+
 body.dark-mode {
   background-color: #0e0e0e;
   color: #eee;
 }
-body.dark-mode * {
-  background-color: transparent;
-  color: inherit;
+
+/* Responsive Container */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1rem;
 }
 
-/* ========== NAVIGATION ========== */
-nav {
+.center-text {
+  text-align: center;
+}
+
+/* Main background fix */
+.main-wrap {
   background-color: #fff;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-}
-.nav-links {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 1.5rem;
-}
-.nav-links a {
-  color: inherit;
-  font-weight: bold;
-  text-decoration: none;
-}
-.nav-links a:hover {
-  color: #00cc66;
-}
-#theme-toggle {
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
-/* ========== HEADER ========== */
+body.dark-mode .main-wrap {
+  background-color: #0e0e0e;
+}
+
+/* Header */
 .header-container {
   text-align: center;
   padding-top: 4rem;
@@ -57,28 +49,57 @@ nav {
   border-radius: 50%;
 }
 h1 {
-  margin: 1rem 0 0.5rem;
   font-size: 2.5rem;
+  margin: 1rem 0 0.5rem;
 }
 .subtitle {
-  opacity: 0.75;
   font-size: 1.1rem;
+  opacity: 0.75;
 }
 
-/* ========== SECTION BLOCK (FOR WRAPPERS) ========== */
+/* Navigation */
+nav {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1.5rem;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+}
+.nav-links a:hover {
+  color: #00cc66;
+}
+#theme-toggle {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Section Wrapper */
 .section-block {
   background-color: #fff;
   border-radius: 10px;
   padding: 2rem;
   margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
+
 body.dark-mode .section-block {
-  background-color: #1d1d1d;
+  background-color: #1a1a1a;
   color: #eee;
 }
 
-/* ========== PROJECT CARD ========== */
+/* Project Card */
 .project-card {
   background-color: #fff;
   border-radius: 12px;
@@ -86,13 +107,16 @@ body.dark-mode .section-block {
   margin-bottom: 2rem;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
 }
+
 .project-img, .project-video {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 0;
 }
+
 .project-info {
-  padding: 1rem;
+  padding: 1.2rem;
   background-color: #fff;
 }
 .project-info h3 {
@@ -104,6 +128,8 @@ body.dark-mode .section-block {
   line-height: 1.4;
   color: #444;
 }
+
+/* Dark Mode for Project Cards */
 body.dark-mode .project-card {
   background-color: #1e1e1e;
 }
@@ -117,23 +143,21 @@ body.dark-mode .project-info p {
   color: #ccc;
 }
 
-/* ========== FOOTER ========== */
+/* Footer */
 footer {
-  background-color: #eee;
+  background: #eee;
   text-align: center;
   padding: 1.5rem 0;
+  margin-top: 2rem;
   color: #111;
-  margin-top: 4rem;
 }
 body.dark-mode footer {
   background-color: #151515;
   color: #ccc;
 }
 
-/* ========== ANIMATIONS ========== */
-.fade-in,
-.fade-in-up,
-.slide-in-left {
+/* Animations */
+.fade-in, .fade-in-up, .slide-in-left {
   opacity: 0;
   transition: 0.6s ease;
 }
@@ -141,23 +165,32 @@ body.dark-mode footer {
   opacity: 1 !important;
 }
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .fade-in-up {
   animation: fadeInUp 1s ease forwards;
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
+/* Responsive */
+@media screen and (max-width: 768px) {
   .nav-links {
     flex-direction: column;
     gap: 1rem;
   }
+
   h1 {
     font-size: 2rem;
   }
+
   .section-block {
     padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 }
