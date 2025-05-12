@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DreamVision | Minecraft Server Developer</title>
+  <title>DreamVision | Minecraft Dev</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon.png" />
 </head>
 <body>
 
   <!-- Header -->
-  <header class="fade-in-up">
-    <div class="container header-container">
+  <header class="fade-in-up full-width-section">
+    <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision" class="profile-img" />
       <h1>Hi, I'm <span class="highlight">DreamVision</span></h1>
       <p class="subtitle">Minecraft Server Developer • Plugin Architect • System Manager</p>
@@ -28,46 +27,46 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
-  <main class="container">
+  <main class="main-wrap">
+    <div class="container">
 
-    <!-- About Section -->
-    <section id="about" class="fade-in-up section-block">
-      <h2>About Me</h2>
-      <p>
-        I'm a Minecraft server developer with strong experience in gamemode design and backend plugin systems.
-        I co-founded <strong>NeonStudios</strong>, contributed to <strong>Crew Gaming</strong>,
-        managed <strong>CreeperMC</strong>, and developed <strong>VoidNetwork</strong>.
-      </p>
+      <!-- About -->
+      <section id="about" class="fade-in-up section-block">
+        <h2>About Me</h2>
+        <p>
+          I'm a Minecraft server developer with gamemode design & backend plugin experience.
+          I co-founded <strong>NeonStudios</strong>, led <strong>Crew Gaming</strong>,
+          managed <strong>CreeperMC</strong> & built <strong>VoidNetwork</strong>.
+        </p>
 
-      <h3>Specializations</h3>
-      <ul class="skills-list">
-        <li>Custom Bedwars systems</li>
-        <li>LifeSteal plugin development</li>
-        <li>PvP/Practice environments</li>
-        <li>Survival gameplay balancing</li>
-      </ul>
+        <h3>Specializations</h3>
+        <ul class="skills-list">
+          <li>Custom Bedwars systems</li>
+          <li>LifeSteal plugin development</li>
+          <li>PvP Practice environments</li>
+          <li>Survival gameplay balancing</li>
+        </ul>
 
-      <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
-    </section>
+        <img src="images/banner.jpg" alt="Minecraft Banner" class="banner-img" />
+      </section>
 
-    <!-- ✅ Contact Section (Restored) -->
-    <section id="contact" class="fade-in section-block">
-      <h2>Contact Me</h2>
+      <!-- Contact -->
+      <section id="contact" class="fade-in section-block">
+        <h2>Contact Me</h2>
+        <div class="contact-box">
+          <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
+          <p>💬 Discord: <strong>itzdibbozz2</strong></p>
+          <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
+        </div>
+      </section>
 
-      <div class="contact-box">
-        <p>📧 Email: <a href="mailto:dreamvisionmc@gmail.com">dreamvisionmc@gmail.com</a></p>
-        <p>💬 Discord: <strong>itzdibbozz2</strong></p>
-        <p>🐙 GitHub: <a href="https://github.com/DreamVisionMC" target="_blank">github.com/DreamVisionMC</a></p>
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="fade-in">
     <div class="container center-text">
-      <p>&copy; 2025 DreamVision. All rights reserved.</p>
+      <p>© 2025 DreamVision. Built in Java ⚒️</p>
     </div>
   </footer>
 
@@ -77,10 +76,7 @@
       const toggle = document.getElementById("theme-toggle");
       const body = document.body;
       const savedTheme = localStorage.getItem("theme");
-
-      if (savedTheme === "dark") {
-        body.classList.add("dark-mode");
-      }
+      if (savedTheme === "dark") body.classList.add("dark-mode");
 
       toggle?.addEventListener("click", () => {
         body.classList.toggle("dark-mode");
@@ -88,18 +84,17 @@
       });
 
       const items = document.querySelectorAll(".fade-in, .fade-in-up, .slide-in-left");
-      function reveal() {
+      const reveal = () => {
         items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add("visible");
-            el.style.animationPlayState = "running";
           }
         });
-      }
-
+      };
       window.addEventListener("scroll", reveal);
       reveal();
     });
   </script>
+
 </body>
 </html>
