@@ -9,7 +9,7 @@
 <body>
 
   <!-- Header -->
-  <header class="fade-in-up">
+  <header class="fade-in-up full-width-section">
     <div class="container header-container center-text">
       <img src="images/profile.jpg" alt="DreamVision Logo" class="profile-img" />
       <h1>My Projects</h1>
@@ -27,7 +27,6 @@
     </ul>
   </nav>
 
-  <!-- Main content container -->
   <main class="main-wrap">
     <div class="container">
       <section class="fade-in-up section-block">
@@ -43,22 +42,22 @@
 
         <!-- VoidNetwork Project -->
         <div class="project-card">
-          <img src="images/voidnetwork.jpg" alt="VoidNetwork Screenshot" class="project-img" />
+          <img src="images/voidnetwork.jpg" alt="Void Network Screenshot" class="project-img" />
           <div class="project-info">
             <h3>VoidNetwork</h3>
             <p>Scalable backend with matchmaking, weekly events, and advanced LifeSteal gamemode.</p>
           </div>
         </div>
 
-        <!-- Trailer Showcase -->
+        <!-- Trailer -->
         <div class="project-card">
-          <iframe class="project-video" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Server Trailer"></iframe>
+          <iframe src="https://www.youtube.com/embed/yp1CMC5SQ3Q" class="project-video" title="Trailer" allowfullscreen></iframe>
           <div class="project-info">
             <h3>Trailer / Showcase</h3>
-            <p>Highlight video of several custom Minecraft servers & systems I built.</p>
+            <p>Highlight video of servers styled and launched with custom plugins.</p>
           </div>
         </div>
-        
+
       </section>
     </div>
   </main>
@@ -66,35 +65,32 @@
   <!-- Footer -->
   <footer class="fade-in center-text">
     <div class="container">
-      <p>&copy; 2025 DreamVision. Built with Java ⚒️</p>
+      <p>© 2025 DreamVision. Built with creativity ✨</p>
     </div>
   </footer>
 
-  <!-- Theme Toggle & Scroll Reveal -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const toggle = document.getElementById("theme-toggle")
       const body = document.body
-      const savedTheme = localStorage.getItem("theme")
-      if (savedTheme === "dark") body.classList.add("dark-mode");
+      const saved = localStorage.getItem("theme")
+      if (saved === "dark") body.classList.add("dark-mode");
 
       toggle?.addEventListener("click", () => {
         body.classList.toggle("dark-mode");
         localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
-      const items = document.querySelectorAll(".fade-in, .fade-in-up, .slide-in-left, .project-card");
-      function reveal() {
+      const items = document.querySelectorAll(".fade-in, .fade-in-up, .project-card");
+      window.addEventListener("scroll", () => {
         items.forEach(el => {
           if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add("visible");
           }
         });
-      }
-
-      window.addEventListener("scroll", reveal);
-      reveal();
+      });
     });
   </script>
+
 </body>
 </html>
