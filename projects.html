@@ -17,7 +17,7 @@
     </div>
   </header>
 
-  <!-- ✅ NAVIGATION BAR (yay, it's back!) -->
+  <!-- ✅ NAVIGATION BAR (the missing bit!) -->
   <nav class="slide-in-left">
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
@@ -27,7 +27,7 @@
     </ul>
   </nav>
 
-  <!-- ✅ Main project content -->
+  <!-- ✅ Main Section -->
   <main class="main-wrap">
     <div class="container">
       <section class="fade-in-up section-block">
@@ -46,7 +46,7 @@
           <img src="images/voidnetwork.jpg" alt="VoidNetwork Screenshot" class="project-img" />
           <div class="project-info">
             <h3>VoidNetwork</h3>
-            <p>Scalable backend, weekly events & advanced LifeSteal game system built from scratch.</p>
+            <p>Scalable backend with matchmaking, weekly events, and a cracked LifeSteal gamemode.</p>
           </div>
         </div>
 
@@ -55,7 +55,7 @@
           <iframe class="project-video" src="https://www.youtube.com/embed/yp1CMC5SQ3Q" allowfullscreen title="Trailer"></iframe>
           <div class="project-info">
             <h3>Trailer / Showcase</h3>
-            <p>Highlight video of how I combined design, plugin code, and backend systems.</p>
+            <p>Highlight video of Minecraft projects styled and launched with backend plugins.</p>
           </div>
         </div>
 
@@ -63,26 +63,28 @@
     </div>
   </main>
 
-  <!-- ✅ Footer -->
+  <!-- Footer -->
   <footer class="fade-in center-text">
     <div class="container">
-      <p>© 2025 DreamVision. Let's build things together 🔧</p>
+      <p>© 2025 DreamVision. Built with command blocks ⚡️</p>
     </div>
   </footer>
 
   <!-- ✅ Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // dark mode toggle
       const toggle = document.getElementById("theme-toggle");
       const body = document.body;
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") body.classList.add("dark-mode");
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") body.classList.add("dark-mode");
 
       toggle?.addEventListener("click", () => {
         body.classList.toggle('dark-mode');
         localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
+      // scroll reveal
       const items = document.querySelectorAll(".fade-in, .fade-in-up, .project-card");
       function reveal() {
         items.forEach(el => {
@@ -95,5 +97,6 @@
       reveal();
     });
   </script>
+
 </body>
 </html>
