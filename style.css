@@ -1,48 +1,38 @@
-/* Base Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
+  background: #f4f4f4;
   color: #111;
-  scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  min-height: 100%;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-body.dark-mode {
+/* Full page container */
+.main-wrap {
+  background-color: #f4f4f4;
+}
+body.dark-mode .main-wrap {
   background-color: #0e0e0e;
-  color: #eee;
 }
 
-/* Responsive Container */
+/* Containers */
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 2rem 1rem;
 }
-
 .center-text {
   text-align: center;
 }
 
-/* Main background fix */
-.main-wrap {
-  background-color: #fff;
-}
-
-body.dark-mode .main-wrap {
-  background-color: #0e0e0e;
-}
-
 /* Header */
 .header-container {
-  text-align: center;
   padding-top: 4rem;
+  text-align: center;
 }
 .profile-img {
   width: 120px;
@@ -55,6 +45,9 @@ h1 {
 .subtitle {
   font-size: 1.1rem;
   opacity: 0.75;
+}
+.highlight {
+  color: #00cc66;
 }
 
 /* Navigation */
@@ -70,86 +63,93 @@ nav {
   gap: 1.5rem;
 }
 .nav-links a {
-  text-decoration: none;
   font-weight: bold;
   color: inherit;
+  text-decoration: none;
 }
 .nav-links a:hover {
   color: #00cc66;
 }
 #theme-toggle {
-  font-size: 1.2rem;
   background: none;
   border: none;
+  font-size: 1.2rem;
   cursor: pointer;
-  color: inherit;
 }
 
-/* Section Wrapper */
+/* Section blocks */
 .section-block {
   background-color: #fff;
-  border-radius: 10px;
   padding: 2rem;
   margin: 2rem 0;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
-
 body.dark-mode .section-block {
   background-color: #1a1a1a;
   color: #eee;
 }
 
-/* Project Card */
+/* Project Cards */
 .project-card {
   background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 10px;
   margin-bottom: 2rem;
+  overflow: hidden;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
 }
-
 .project-img, .project-video {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0;
 }
-
 .project-info {
-  padding: 1.2rem;
+  padding: 1rem;
   background-color: #fff;
 }
-.project-info h3 {
-  color: #00cc66;
-  margin-bottom: 0.5rem;
-}
-.project-info p {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #444;
-}
-
-/* Dark Mode for Project Cards */
 body.dark-mode .project-card {
   background-color: #1e1e1e;
 }
 body.dark-mode .project-info {
   background-color: #1e1e1e;
 }
+.project-info h3 {
+  color: #00cc66;
+}
 body.dark-mode .project-info h3 {
   color: #00ff88;
+}
+.project-info p {
+  color: #444;
 }
 body.dark-mode .project-info p {
   color: #ccc;
 }
 
+/* Contact */
+.contact-box {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+body.dark-mode .contact-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #eee;
+}
+.contact-box a {
+  color: #00cc66;
+}
+body.dark-mode .contact-box a {
+  color: #00ff88;
+}
+
 /* Footer */
 footer {
-  background: #eee;
   text-align: center;
   padding: 1.5rem 0;
-  margin-top: 2rem;
-  color: #111;
+  background: #eee;
+  margin-top: 3rem;
 }
 body.dark-mode footer {
   background-color: #151515;
@@ -157,25 +157,19 @@ body.dark-mode footer {
 }
 
 /* Animations */
-.fade-in, .fade-in-up, .slide-in-left {
+.fade-in, .fade-in-up, .slide-in-left, .project-card {
   opacity: 0;
   transition: 0.6s ease;
 }
 .visible {
-  opacity: 1 !important;
+  opacity: 1;
 }
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 .fade-in-up {
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 1s forwards;
 }
 
 /* Responsive */
@@ -184,13 +178,7 @@ body.dark-mode footer {
     flex-direction: column;
     gap: 1rem;
   }
-
-  h1 {
-    font-size: 2rem;
-  }
-
   .section-block {
     padding: 1.5rem;
-    margin-bottom: 2rem;
   }
 }
