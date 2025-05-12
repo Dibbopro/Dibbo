@@ -13,13 +13,18 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode */
+/* 🌙 Dark Mode */
 body.dark-mode {
   background-color: #0e0e0e;
   color: #eee;
 }
+body.dark-mode .main-wrap,
+body.dark-mode .section-block {
+  background-color: #1a1a1a;
+  color: #eee;
+}
 
-/* CONTAINER */
+/* WRAPPER */
 .container {
   max-width: 1000px;
   margin: auto;
@@ -28,7 +33,11 @@ body.dark-mode {
 .center-text {
   text-align: center;
 }
+.main-wrap {
+  background-color: inherit;
+}
 
+/* =================== */
 /* HEADER */
 .header-container {
   padding-top: 4rem;
@@ -50,48 +59,55 @@ h1 {
   color: #00cc66;
 }
 
-/* NAVIGATION */
+/* =================== */
+/* NAVBAR */
 nav {
   background-color: #ffffff;
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   transition: background-color 0.3s;
 }
-body.dark-mode nav {
-  background-color: #111111;
-  box-shadow: 0 4px 10px rgba(255,255,255,0.04);
-}
 .nav-links {
+  list-style: none;
   display: flex;
   justify-content: center;
-  list-style: none;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 .nav-links a {
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   color: inherit;
 }
 .nav-links a:hover {
   color: #00cc66;
 }
+/* Theme toggle btn */
 #theme-toggle {
+  font-size: 1.2rem;
   background: none;
   border: none;
-  font-size: 1.2rem;
   cursor: pointer;
   color: inherit;
 }
-
-/* MAIN AREA */
-.main-wrap {
-  background-color: inherit;
+/* Dark nav styles */
+body.dark-mode nav {
+  background-color: #111;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
 }
+body.dark-mode .nav-links a {
+  color: #eaeaea;
+}
+body.dark-mode .nav-links a:hover {
+  color: #00ff88;
+}
+
+/* =================== */
+/* SECTION */
 .section-block {
-  background: #fff;
+  background-color: #fff;
   padding: 2rem;
-  border-radius: 10px;
   margin: 2rem 0;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 body.dark-mode .section-block {
@@ -99,20 +115,64 @@ body.dark-mode .section-block {
   color: #eee;
 }
 
-/* SKILLS */
+/* Skills List */
 .skills-list {
   list-style: square;
   padding-left: 1.5rem;
   margin-top: 1rem;
 }
 
-/* IMAGE */
-.banner-img {
+/* Images */
+.banner-img,
+.project-img,
+.project-video {
   width: 100%;
   margin-top: 1rem;
   border-radius: 10px;
+  display: block;
 }
 
+/* =================== */
+/* PROJECT CARDS */
+.project-card {
+  background-color: #fff;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+}
+.project-info {
+  padding: 1.2rem;
+  background-color: #fff;
+}
+.project-info h3 {
+  color: #00cc66;
+  margin-bottom: 0.5rem;
+}
+.project-info p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #444;
+}
+/* Dark Mode Project Cards */
+body.dark-mode .project-card {
+  background-color: #1e1e1e;
+}
+body.dark-mode .project-info {
+  background-color: #1e1e1e;
+}
+body.dark-mode .project-info h3 {
+  color: #00ff88;
+}
+body.dark-mode .project-info p {
+  color: #ccc;
+}
+
+/* =================== */
 /* CONTACT */
 .contact-box {
   background-color: #f0f0f0;
@@ -124,13 +184,14 @@ body.dark-mode .section-block {
   color: #00cc66;
 }
 body.dark-mode .contact-box {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255,255,255,0.05);
   color: #eee;
 }
 body.dark-mode .contact-box a {
   color: #00ff88;
 }
 
+/* =================== */
 /* FOOTER */
 footer {
   background: #eee;
@@ -143,8 +204,12 @@ body.dark-mode footer {
   color: #ccc;
 }
 
+/* =================== */
 /* ANIMATIONS */
-.fade-in, .fade-in-up, .slide-in-left {
+.fade-in,
+.fade-in-up,
+.slide-in-left,
+.project-card {
   opacity: 0;
   transition: 0.6s ease;
 }
@@ -152,22 +217,31 @@ body.dark-mode footer {
   opacity: 1 !important;
 }
 @keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .fade-in-up {
-  animation: fadeInUp 1s forwards;
+  animation: fadeInUp 1s ease forwards;
 }
 
+/* =================== */
 /* RESPONSIVE */
 @media screen and (max-width: 768px) {
   .nav-links {
     flex-direction: column;
     gap: 1rem;
   }
+
   h1 {
     font-size: 2rem;
   }
+
   .section-block {
     padding: 1.5rem;
   }
